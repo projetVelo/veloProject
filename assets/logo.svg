@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Vélo Kombi">
+  <rect width="64" height="64" rx="12" fill="#1f6f4a"/>
+  <circle cx="21" cy="41" r="10" fill="none" stroke="#f6f5f1" stroke-width="3"/>
+  <circle cx="45" cy="41" r="10" fill="none" stroke="#f6f5f1" stroke-width="3"/>
+  <path d="M21 41 L30 24 L45 41 L30 41 Z" fill="none" stroke="#f6f5f1" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M30 24 L38 24" stroke="#f6f5f1" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="30" cy="41" r="2.5" fill="#f6f5f1"/>
+</svg>

@@ -1,0 +1,4 @@
+# nom-du-groupe,login1,login2,login3,login4
+# Les lignes vides et celles commençant par # sont ignorées.
+groupe-a,alice-dev,bob-code,chloe-py,dan-js
+groupe-b,emma-web,farid-ops,gaelle-ui,hugo-back

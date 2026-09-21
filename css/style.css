@@ -1,0 +1,864 @@
+/* ==========================================================================
+   Vélo Kombi - feuille de style principale
+   Sommaire
+   1.  Variables
+   2.  Réinitialisation
+   3.  Utilitaires
+   4.  En-tête et navigation
+   5.  Boutons
+   6.  Section héros
+   7.  Sections et titres
+   8.  Cartes de prestations
+   9.  Étapes
+   10. Panneau latéral et horaires
+   11. Citations
+   12. Tableaux de prix
+   13. Forfaits
+   14. Formulaire
+   15. Pied de page
+   16. Adaptation mobile
+   ========================================================================== */
+
+/* 1. Variables ----------------------------------------------------------- */
+
+:root {
+  --couleur-encre: #16211c;
+  --couleur-encre-douce: #4a5b53;
+  --couleur-encre-tres-douce: #7d8f86;
+  --couleur-fond: #f6f5f1;
+  --couleur-surface: #ffffff;
+  --couleur-surface-alt: #eceae3;
+  --couleur-accent: #1f6f4a;
+  --couleur-accent-fonce: #17573a;
+  --couleur-accent-clair: #e4f0e9;
+  --couleur-signal: #b4531f;
+  --couleur-trait: #dcd9d0;
+
+  --police-titre: Georgia, "Times New Roman", serif;
+  --police-texte: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --police-chiffres: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --rayon: 4px;
+  --rayon-large: 8px;
+  --largeur-max: 1100px;
+  --espace-section: 72px;
+  --ombre-douce: 0 1px 2px rgba(22, 33, 28, 0.06), 0 4px 12px rgba(22, 33, 28, 0.05);
+}
+
+/* 2. Réinitialisation ---------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--couleur-fond);
+  color: var(--couleur-encre);
+  font-family: var(--police-texte);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--couleur-accent-fonce);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--couleur-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--couleur-accent);
+  outline-offset: 2px;
+}
+
+/* 3. Utilitaires --------------------------------------------------------- */
+
+.wrap {
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--couleur-accent);
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 20;
+}
+
+.skip:focus {
+  left: 12px;
+  top: 12px;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--couleur-encre-tres-douce);
+  margin-bottom: 12px;
+}
+
+.num {
+  font-family: var(--police-chiffres);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.mention {
+  margin-top: 20px;
+  font-size: 0.88rem;
+  color: var(--couleur-encre-douce);
+  max-width: 62ch;
+}
+
+/* 4. En-tête et navigation ----------------------------------------------- */
+
+.site-header {
+  background: var(--couleur-surface);
+  border-bottom: 1px solid var(--couleur-trait);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--police-titre);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--couleur-encre);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  color: var(--couleur-encre-douce);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 6px 0;
+}
+
+.nav-link:hover {
+  color: var(--couleur-encre);
+}
+
+.nav-link.is-current {
+  color: var(--couleur-encre);
+  border-bottom: 2px solid var(--couleur-accent);
+}
+
+.burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+  cursor: pointer;
+  position: relative;
+}
+
+.burger-bar,
+.burger-bar::before,
+.burger-bar::after {
+  position: absolute;
+  left: 11px;
+  width: 16px;
+  height: 2px;
+  background: var(--couleur-encre);
+  content: "";
+}
+
+.burger-bar {
+  top: 19px;
+}
+
+.burger-bar::before {
+  top: -6px;
+}
+
+.burger-bar::after {
+  top: 6px;
+}
+
+/* 5. Boutons ------------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  background: var(--couleur-accent);
+  color: #ffffff;
+  border: 1px solid var(--couleur-accent);
+  border-radius: var(--rayon);
+  padding: 12px 22px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--couleur-accent-fonce);
+  color: #ffffff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--couleur-accent-fonce);
+}
+
+.btn-ghost:hover {
+  background: var(--couleur-accent-clair);
+  color: var(--couleur-accent-fonce);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* 6. Section héros ------------------------------------------------------- */
+
+.hero {
+  background: var(--couleur-surface);
+  border-bottom: 1px solid var(--couleur-trait);
+  padding: 76px 0 64px;
+}
+
+.hero-inner {
+  max-width: 860px;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  margin-bottom: 18px;
+}
+
+.accent {
+  color: var(--couleur-accent);
+}
+
+.hero-lede {
+  font-size: 1.12rem;
+  color: var(--couleur-encre-douce);
+  max-width: 60ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0;
+  margin: 44px 0 0;
+  border-top: 1px solid var(--couleur-trait);
+}
+
+.stats div {
+  padding: 18px 18px 18px 0;
+}
+
+.stats dt {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--couleur-encre-tres-douce);
+}
+
+.stats dd {
+  margin: 6px 0 0;
+  font-family: var(--police-titre);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* 7. Sections et titres -------------------------------------------------- */
+
+.section {
+  padding: var(--espace-section) 0;
+}
+
+.section-alt {
+  background: var(--couleur-surface-alt);
+}
+
+.page-head {
+  background: var(--couleur-surface);
+  border-bottom: 1px solid var(--couleur-trait);
+  padding: 56px 0 44px;
+}
+
+.section-title {
+  margin-bottom: 12px;
+}
+
+.section-lede {
+  color: var(--couleur-encre-douce);
+  max-width: 64ch;
+  margin-bottom: 32px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* 8. Cartes de prestations ----------------------------------------------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon-large);
+  padding: 22px;
+  box-shadow: var(--ombre-douce);
+}
+
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: var(--couleur-encre-douce);
+  font-size: 0.94rem;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--couleur-trait);
+  font-size: 0.9rem;
+}
+
+.card-prix {
+  font-family: var(--police-chiffres);
+  font-size: 1.05rem;
+  color: var(--couleur-encre);
+}
+
+.card-duree {
+  color: var(--couleur-encre-tres-douce);
+}
+
+.card-empty {
+  color: var(--couleur-encre-tres-douce);
+  font-style: italic;
+}
+
+/* 9. Étapes -------------------------------------------------------------- */
+
+.steps {
+  list-style: none;
+  counter-reset: etape;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.steps li {
+  counter-increment: etape;
+  padding-left: 46px;
+  position: relative;
+}
+
+.steps li::before {
+  content: counter(etape);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--couleur-accent-clair);
+  color: var(--couleur-accent-fonce);
+  font-family: var(--police-chiffres);
+  font-size: 0.9rem;
+  display: grid;
+  place-items: center;
+}
+
+.steps h3 {
+  margin-bottom: 4px;
+}
+
+.steps p {
+  color: var(--couleur-encre-douce);
+  font-size: 0.94rem;
+}
+
+/* 10. Panneau latéral et horaires ---------------------------------------- */
+
+.panel {
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon-large);
+  padding: 26px;
+  box-shadow: var(--ombre-douce);
+}
+
+.panel-title {
+  font-size: 1.1rem;
+  margin: 22px 0 12px;
+}
+
+.panel-title:first-child {
+  margin-top: 0;
+}
+
+.panel p {
+  color: var(--couleur-encre-douce);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.horaires {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.horaires caption {
+  text-align: left;
+  color: var(--couleur-encre-tres-douce);
+  font-size: 0.86rem;
+  padding-bottom: 10px;
+}
+
+.horaires th,
+.horaires td {
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--couleur-trait);
+  font-weight: 400;
+}
+
+.horaires td {
+  text-align: right;
+  font-family: var(--police-chiffres);
+  font-size: 0.9rem;
+}
+
+.panel-note {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--couleur-encre-tres-douce);
+}
+
+.liste-puces {
+  margin: 0 0 10px;
+  padding-left: 20px;
+  color: var(--couleur-encre-douce);
+  font-size: 0.95rem;
+}
+
+.liste-puces li {
+  margin-bottom: 6px;
+}
+
+/* 11. Citations ---------------------------------------------------------- */
+
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+blockquote {
+  margin: 0;
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon-large);
+  padding: 24px;
+}
+
+blockquote p {
+  font-family: var(--police-titre);
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+blockquote footer {
+  margin-top: 14px;
+  font-size: 0.86rem;
+  color: var(--couleur-encre-tres-douce);
+}
+
+/* 12. Tableaux de prix --------------------------------------------------- */
+
+.prix {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon-large);
+  overflow: hidden;
+  font-size: 0.96rem;
+}
+
+.prix caption {
+  text-align: left;
+  color: var(--couleur-encre-tres-douce);
+  font-size: 0.86rem;
+  padding-bottom: 12px;
+}
+
+.prix thead th {
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--couleur-encre-tres-douce);
+  font-weight: 500;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--couleur-trait);
+}
+
+.prix thead th:last-child {
+  text-align: right;
+}
+
+.prix td {
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--couleur-trait);
+}
+
+.prix tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.prix tbody tr:hover {
+  background: var(--couleur-accent-clair);
+}
+
+/* 13. Forfaits ----------------------------------------------------------- */
+
+.forfaits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.forfait {
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon-large);
+  padding: 26px;
+  box-shadow: var(--ombre-douce);
+  display: flex;
+  flex-direction: column;
+}
+
+.forfait ul {
+  flex: 1 0 auto;
+}
+
+.forfait-vedette {
+  border-color: var(--couleur-accent);
+  border-width: 2px;
+}
+
+.forfait h3 {
+  margin-bottom: 10px;
+}
+
+.forfait-prix {
+  font-family: var(--police-titre);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--couleur-accent-fonce);
+  margin-bottom: 16px;
+}
+
+.forfait ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--couleur-encre-douce);
+  font-size: 0.94rem;
+}
+
+.forfait li {
+  margin-bottom: 7px;
+}
+
+.forfait-note {
+  font-size: 0.85rem;
+  color: var(--couleur-encre-tres-douce);
+  padding-top: 12px;
+  border-top: 1px solid var(--couleur-trait);
+}
+
+/* 14. Formulaire --------------------------------------------------------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 520px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: inherit;
+  font-size: 0.98rem;
+  padding: 11px 12px;
+  border: 1px solid var(--couleur-trait);
+  border-radius: var(--rayon);
+  background: var(--couleur-surface);
+  color: var(--couleur-encre);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.form .btn {
+  align-self: flex-start;
+}
+
+.form-retour {
+  background: var(--couleur-accent-clair);
+  border-radius: var(--rayon);
+  padding: 12px 14px;
+  font-size: 0.92rem;
+  color: var(--couleur-accent-fonce);
+}
+
+/* 15. Pied de page ------------------------------------------------------- */
+
+.site-footer {
+  background: var(--couleur-encre);
+  color: #d9e2dd;
+  padding: 52px 0 32px;
+  margin-top: 0;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px 36px;
+}
+
+.site-footer p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.site-footer a {
+  color: #d9e2dd;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
+}
+
+.footer-brand {
+  font-family: var(--police-titre);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.footer-heading {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aada4;
+  margin-bottom: 8px;
+}
+
+.footer-legal {
+  grid-column: 1 / -1;
+  border-top: 1px solid #2c3a34;
+  padding-top: 18px;
+  font-size: 0.82rem;
+  color: #9aada4;
+}
+
+/* 16. Adaptation mobile -------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .forfaits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--couleur-surface);
+    border-bottom: 1px solid var(--couleur-trait);
+    padding: 8px 20px 18px;
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--couleur-trait);
+  }
+
+  .nav-link.is-current {
+    border-bottom: 1px solid var(--couleur-trait);
+    color: var(--couleur-accent-fonce);
+  }
+
+  .nav .btn {
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .forfaits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn {
+    transition: none;
+  }
+}

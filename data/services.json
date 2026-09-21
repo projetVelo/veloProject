@@ -1,0 +1,62 @@
+{
+  "misAJour": "2026-09-01",
+  "devise": "EUR",
+  "services": [
+    {
+      "id": "revision-essentielle",
+      "nom": "Révision essentielle",
+      "description": "Réglage des freins et du dérailleur, contrôle du serrage, gonflage, lubrification de la transmission.",
+      "prix": 59,
+      "duree": "Une demi-journée",
+      "populaire": false
+    },
+    {
+      "id": "revision-complete",
+      "nom": "Révision complète",
+      "description": "Révision essentielle, dévoilage des deux roues, nettoyage de la transmission, purge des freins.",
+      "prix": 119,
+      "duree": "48 heures",
+      "populaire": true
+    },
+    {
+      "id": "forfait-electrique",
+      "nom": "Forfait électrique",
+      "description": "Révision complète, diagnostic du moteur et de la batterie, mise à jour du contrôleur, test d'autonomie.",
+      "prix": 149,
+      "duree": "72 heures",
+      "populaire": false
+    },
+    {
+      "id": "crevaison",
+      "nom": "Réparation de crevaison",
+      "description": "Changement de la chambre à air, contrôle du pneu et de la jante, remontage de la roue.",
+      "prix": 12,
+      "duree": "30 minutes",
+      "populaire": false
+    },
+    {
+      "id": "devoilage",
+      "nom": "Dévoilage d'une roue",
+      "description": "Remise en ligne de la jante, contrôle de la tension des rayons, centrage sur le moyeu.",
+      "prix": 22,
+      "duree": "1 heure",
+      "populaire": false
+    },
+    {
+      "id": "montage-neuf",
+      "nom": "Montage d'un vélo neuf",
+      "description": "Assemblage complet, réglages de sécurité, essai sur route et contrôle final au banc.",
+      "prix": 65,
+      "duree": "1 h 30",
+      "populaire": false
+    },
+    {
+      "id": "reglage-position",
+      "nom": "Réglage de position",
+      "description": "Ajustement de la hauteur de selle, du cintre et des cales pour une posture optimale.",
+      "prix": 39,
+      "duree": "45 minutes",
+      "populaire": false
+    }
+  ]
+}
