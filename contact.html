@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Vélo Kombi</title>
+  <meta name="description" content="Contacter l'atelier Vélo Kombi, prendre rendez-vous ou demander un devis.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.svg">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="" width="34" height="34">
+        <span>Vélo Kombi</span>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="nav" type="button">
+        <span class="burger-bar"></span>
+        <span class="sr-only">Ouvrir le menu</span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a class="nav-link" href="index.html">Accueil</a>
+        <a class="nav-link" href="tarifs.html">Tarifs</a>
+        <a class="nav-link is-current" href="contact.html">Contact</a>
+        <a class="btn btn-small" href="contact.html">Prendre rendez-vous</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Réponse sous un jour ouvré</p>
+        <h1>Nous contacter</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap grid-2">
+        <div>
+          <h2 class="section-title">Demander un rendez-vous</h2>
+          <p class="section-lede">
+            Ce formulaire est une démonstration : il n'envoie aucune donnée.
+          </p>
+          <form class="form" id="form-contact" novalidate>
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="courriel">Courriel</label>
+              <input type="email" id="courriel" name="courriel" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="besoin">Type d'intervention</label>
+              <select id="besoin" name="besoin">
+                <option>Révision essentielle</option>
+                <option>Révision complète</option>
+                <option>Forfait électrique</option>
+                <option>Intervention à l'unité</option>
+                <option>Je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Décrivez le problème</label>
+              <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <button class="btn" type="submit">Envoyer la demande</button>
+            <p class="form-retour" id="form-retour" hidden></p>
+          </form>
+        </div>
+
+        <aside class="panel">
+          <h2 class="panel-title">L'atelier</h2>
+          <p>
+            12 rue de l'Établi<br>
+            00000 Villeneuve-sur-Exemple
+          </p>
+          <p>
+            Téléphone : <a href="tel:+33000000000">00 00 00 00 00</a><br>
+            Courriel : <a href="mailto:bonjour@velo-kombi.example">bonjour@velo-kombi.example</a>
+          </p>
+          <h3 class="panel-title">Accès</h3>
+          <ul class="liste-puces">
+            <li>Tramway ligne 2, arrêt Les Ateliers</li>
+            <li>Stationnement vélo devant l'atelier, vingt places</li>
+            <li>Accès de plain-pied, atelier accessible aux fauteuils roulants</li>
+          </ul>
+          <h3 class="panel-title">Horaires</h3>
+          <p>
+            Mardi au jeudi : 9 h 00 à 18 h 30<br>
+            Vendredi : 9 h 00 à 19 h 30<br>
+            Samedi : 10 h 00 à 17 h 00<br>
+            Dimanche et lundi : fermé
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p class="footer-brand">Vélo Kombi</p>
+        <p>12 rue de l'Établi<br>00000 Villeneuve-sur-Exemple</p>
+      </div>
+      <div>
+        <p class="footer-heading">Nous joindre</p>
+        <p>
+          <a href="tel:+33000000000">00 00 00 00 00</a><br>
+          <a href="mailto:bonjour@velo-kombi.example">bonjour@velo-kombi.example</a>
+        </p>
+      </div>
+      <div>
+        <p class="footer-heading">Informations</p>
+        <p>Diagnostic gratuit<br>Devis avant intervention<br>Garantie pièces deux ans</p>
+      </div>
+      <p class="footer-legal">
+        Entreprise fictive. Site de démonstration utilisé en travaux pratiques.
+        <span id="annee"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="vendor/mini-utils.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

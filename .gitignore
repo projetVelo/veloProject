@@ -1,0 +1,17 @@
+# Systèmes
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Dépendances et sorties de build
+node_modules/
+dist/
+build/
+
+# Secrets et configuration locale
+*.env
+.env.local
